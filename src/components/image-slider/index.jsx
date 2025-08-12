@@ -48,7 +48,7 @@ const ImageSlider = ({ images }) => {
           ? images.map((_, index) => (
               <button
                 key={index}
-                className=" h-[15px] w-[15px] rounded-full m-1 cursor-pointer bg-gray-800"
+                className=" h-[10px] w-[10px] rounded-full m-1 cursor-pointer bg-gray-800"
                 onClick={() => setCurrentIndex(index)}
                 style={{
                   opacity: currentIndex === index ? "100%" : "30%",

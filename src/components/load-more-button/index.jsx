@@ -35,7 +35,7 @@ const LoadMoreButton = () => {
             className="hover:scale-105 hover:shadow-4xl hover:bg-pink-100  transition duration-500 shadow-xl rounded-md  border-1 border-gray-500 text-left px-3 py-2"
           >
             <ImageSlider images={item.images} />
-            <p className="text-2xl font-bold pb-4 text-gray-600 min-h-1/4">
+            <p className="text-2xl font-bold pb-4 text-gray-600 ">
               {item.title}
             </p>
             <p className="">
