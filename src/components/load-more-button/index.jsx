@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ImageSlider from "../image-slider";
 
 const LoadMoreButton = () => {
   const [items, setItems] = useState([]);
@@ -33,7 +34,7 @@ const LoadMoreButton = () => {
             key={index}
             className="hover:scale-105 hover:shadow-4xl hover:bg-pink-100  transition duration-500 shadow-xl rounded-md  border-1 border-gray-500 text-left px-3 py-2"
           >
-            {/* <img src={item.image} alt={item.title} /> */}
+            <ImageSlider images={item.images} />
             <p className="text-2xl font-bold pb-4 text-gray-600 min-h-1/4">
               {item.title}
             </p>
