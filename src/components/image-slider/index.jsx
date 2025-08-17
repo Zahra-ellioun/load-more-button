@@ -4,15 +4,19 @@ import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNextImage = (index) => {
-    if (index < images.length - 1) setCurrentIndex(index + 1);
-    else setCurrentIndex(0);
+  const handleNextImage = () => {
+    setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
   };
 
-  const handleBeforeImage = (index) => {
-    if (index > 0) setCurrentIndex(index - 1);
-    else setCurrentIndex(images.length - 1);
+  const handleBeforeImage = () => {
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
   };
+
+  // برای تعویض خودکار عکس ها
+  // useEffect(() => {
+  //   const timer = setInterval(handleNextImage, 3000);
+  //   return () => clearInterval(timer);
+  // }, [images]);
 
   return (
     <div className="mx-auto relative">
@@ -22,7 +26,8 @@ const ImageSlider = ({ images }) => {
             key={index}
             src={image}
             alt={image}
-            className="object-cover h-full "
+            // loading="lazy"
+            className="object-cover h-[260px] w-[260px]  "
             style={{
               display: currentIndex === index ? "block" : "none",
             }}
@@ -32,13 +37,13 @@ const ImageSlider = ({ images }) => {
         <p>Loading...</p>
       )}
       <button
-        onClick={() => handleNextImage(currentIndex)}
+        onClick={() => handleNextImage()}
         className="absolute bg-white p-1 rounded-full text-2xl right-0 m-2 top-1/2 drop-shadow-4xl cursor-pointer "
       >
         <MdNavigateNext />
       </button>
       <button
-        onClick={() => handleBeforeImage(currentIndex)}
+        onClick={() => handleBeforeImage()}
         className="absolute bg-white p-1 rounded-full text-2xl left-0 m-2 top-1/2 drop-shadow-4xl cursor-pointer"
       >
         <MdNavigateBefore />
