@@ -69,6 +69,7 @@ const LoadMoreButton = () => {
       )}
       <div className=" col-span-2 md:col-span-3 xl:col-span-4 ">
         <button
+          type="button"
           onClick={() => setClickCount(clickCount + 1)}
           className="px-4 py-2 rounded-2xl shadow-xl bg-gray-800 text-white text-xl mt-5"
         >
